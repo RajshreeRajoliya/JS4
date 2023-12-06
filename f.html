@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <input type="text" id="in"> 
+   <div id="main"></div>
+</body>
+</html>
+
+<script>
+    let  i = document.getElementById('in').value;
+fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${i}`)
+.then(function(res){
+return res.json()
+}).then(function(json){
+    console.log(json)
+    display(json)
+})
+
+function display(json){
+let h1 = document.createElement('h1')
+h1.innerText = json.meals[0].strMeal
+
+let p = document.cr
+document.querySelector('#main').append(h1)
+}
+</script>

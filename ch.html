@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // console.log("n");
+    // setTimeout(function(){
+    //     console.log("hell")
+    // },2000)
+    // console.log('f')
+
+
+    let cart = ["j","k","d"];
+
+    api.createOrder(cart,function(){
+        console.log("or")
+        api.proceedPayment(function(){
+            api.summaryOrder(function(){
+                api.wallet()
+            })
+        });
+    })
+
+</script>
