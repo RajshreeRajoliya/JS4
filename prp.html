@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <form action="" id="main">
+            <input type="text" id="amount">
+            <input type="submit" id="btn">
+        </form>
+<div id="wait">
+    <img src="" alt="gif hai">
+</div>
+        <div id="work"></div>
+    </div>
+</body>
+</html>
+
+<script>
+    document.getElementById("main").addEventListener("submit",function pay(){
+        event.preventDefault()
+
+        var price = document.getElementById("amount").value
+
+        var promise = new Promise(function (res , rej){
+            setTimeout(function(){
+                if(price > 0 && price <= 5000){
+                    res("Success!")
+                } else {
+                    rej("Failed to pay")
+                }
+            },2000)
+        })
+     
+        document.getElementById("work").innerHTML = ""
+        document.getElementById("wait").style.display = "block"
+        promise
+        .then(function(res){
+            document.getElementById("work").innerHTML = "block"
+        document.getElementById("wait").style.display = "none"
+            var amt = document.createElement("h1")
+            amt.innerText = res
+            alert(res)
+            document.getElementById("work").append(amt)
+        }).catch(function(rej){
+            document.getElementById("work").innerHTML = "block"
+        document.getElementById("wait").style.display = "none"
+            var amt = document.createElement("h1")
+            amt.innerText = rej
+            alert(rej)
+            document.getElementById("work").append(amt)
+        })
+
+    })
+</script>

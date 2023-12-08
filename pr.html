@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body{
+      background-color: #3e3838}
+    #work,
+    #wait {
+      display:none;
+      
+    }
+    #boxx {
+      display: flex;
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+      flex-direction: column;
+      height: 90vh;
+      width: 35%;
+      align-items: center;
+      justify-content: space-between;
+      margin: auto;
+      margin-top: 25px;
+      padding: 10px 30px;
+      background-color: mediumorchid;
+    }
+
+    #main input {
+      padding: 20px;
+      border-radius: 5px;
+      border: none;
+      width: 35%;
+    }
+    h1 {
+      font-size: 50px;
+      color: aliceblue;
+    }
+    button {
+      width: 20%;
+      border-radius: 20px;
+      border: none;
+      padding: 20px;
+    }
+    #main {
+      gap: 20px;
+      display: flex;
+      justify-content: space-evenly;
+      flex-direction: column;
+      margin: auto;
+      width: 100%;
+      align-items: center;
+      height: 50vh;
+    }
+    #work,
+    #wait {
+      color: aliceblue;
+      font-size: 28px;
+      font-weight: 600;
+      position: fixed;
+      top: 30rem;
+    }
+    #btn{
+        background-color: purple;
+        color: white;
+        margin-top: 350px;
+    }
+    #wait{
+        margin-top: -30%;
+    }
+  </style>
+  <body>
+    <div id="boxx">
+      <form id="main">
+        <h1>PhonePe</h1>
+        <input type="number" id="amount" placeholder="Enter ₹" required />
+        <input type="submit" id="btn" value="Proceed To Pay"></input>
+      </form>
+      <div id="wait">
+        <img src="https://media.tenor.com/6gHLhmwO87sAAAAi/gg.gif" alt="">
+      </div>
+      <div id="work"></div>
+    </div>
+  </body>
+</html>
+<script>
+  document.getElementById("main").addEventListener("submit", function pay() {
+    event.preventDefault();
+    var price = document.getElementById("amount").value;
+    var promise = new Promise(function (res, rej) {
+      setTimeout(function () {
+        if (price > 0 && price < 5000) {
+          res("Paid SuccessFully !");
+        } else {
+          rej("Try Again Later");
+        }
+      }, 4000);
+    });
+    document.getElementById("wait").style.display = "block";
+    document.getElementById("main").innerHTML = "";
+    promise
+      .then(function (res) {
+        document.getElementById("wait").style.display = "none";
+        document.getElementById("work").style.display = "block";
+        var rating = document.createElement("p");
+        rating.innerText = res;
+        alert(res);
+        document.getElementById("work").append(rating);
+    })
+    .catch(function (rej) {
+        document.getElementById("wait").style.display = "none";
+        document.getElementById("work").style.display = "block";
+        var rating = document.createElement("p");
+        rating.innerText = rej;
+        alert("insufficient balance");
+        document.getElementById("work").append(rating);
+      });
+  });
+</script>
