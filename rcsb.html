@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+function rotbs(arr , target){
+    let s = 0;
+    let e = arr.length - 1;
+
+    while(s <= e){
+        let m = Math.floor((s+e)/2)
+        
+        if(arr[m] === target){
+            return m;
+        }
+
+        if(arr[s] <= arr[m]){
+            if(arr[s] <= target && target < arr[m]){
+                 e = m - 1
+            } else {
+                s = m + 1
+            }
+
+        } else {
+if(arr[m] < target && target <= arr[e]){
+    s = m + 1
+}  else {
+    e = m -1
+}
+        }
+    }
+    return -1;
+}
+
+    let arr = [120 , 130 , 140 , 150 , 160 , 50 , 10]
+    let target = 10
+    let index = rotbs(arr , target)
+    if(index != -1){
+console.log("found")
+    } else {
+console.log("not found")
+    }
+
+
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    function rotbs(arr, target) {
+        let start = 0;
+        let end = arr.length - 1;
+
+        while (start <= end) {
+            let mid = Math.floor((start + end) / 2);
+
+            if (arr[mid] === target) {
+                return mid;
+            }
+
+            if (arr[start] <= arr[mid]) {
+                if (arr[start] <= target && target < arr[mid]) {
+                    end = mid - 1;
+                } else {
+                    start = mid + 1;
+                }
+            } else {
+                if (arr[mid] < target && target <= arr[end]) {
+                    start = mid + 1;
+                } else {
+                    end = mid - 1;
+                }
+            }
+        }
+        return -1;
+    }
+
+    let arr = [120, 130, 140, 150, 160, 50, 10];
+    let target = 10;
+    let index = rotbs(arr, target);
+
+    if (index !== -1) {
+        console.log("found");
+    } else {
+        console.log("not found");
+    }
+</script>
+
+    
+</script>
