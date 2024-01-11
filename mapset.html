@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    //set => only store unique values has object constructor
+
+//     let myArray = [1, 2, 3, 4]
+//  let obj = new Set(myArray)
+
+//  obj.add(5)
+//  obj.add(5)
+
+//  obj.delete(5)
+
+//  var obj1 = {name : "rajshree"}
+//  obj.add(obj1)
+
+//  obj.clear()
+
+// obj.forEach((el)=>{
+//     console.log(el)
+// })
+
+//  console.log(obj.has(20))
+//  console.log(obj)
+
+
+//map - in key value pair allow duplicate
+// let myMap = new Map([["a1","raj"],["a2","shree"]])
+
+// myMap.set("a2","raj")
+// myMap.delete("a2")
+// myMap.clear()
+// console.log(myMap)
+// console.log(myMap.get("a2"))
+
+// myMap.forEach((key , value)=>{
+//     console.log(key,value)
+// })
+
+//weakset - only object cannot iterate
+// let ws = new WeakSet()
+
+// let ob1 = {"name":"raj"}
+// let ob2 = {"name ": "malika"}
+
+// ws.add(ob1)
+// ws.add(ob2)
+
+// ws.delete(ob1)
+// console.log(ws)
+// console.log(ws.has(ob2))
+
+// weakmap =>
+
+let wm = new WeakMap()
+let ob1 = {"name":"raj"}
+ let ob2 = {"name ": "malika"}
+
+ wm.set(ob1,"pr")
+ wm.set(ob2,'pr')
+ console.log(wm)
+ console.log(wm.has(ob2))
+</script>
