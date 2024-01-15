@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    class Stack{
+        constructor(){
+            this.stack = []
+        }
+
+        push(element){
+this.stack.push(element)
+        }
+
+        pop(){
+            if(this.isEmpty()){
+return "Stack is empty"
+            } else {
+return this.stack.pop()
+            }
+        }
+
+        peek(){
+            if(this.isEmpty()){
+return "Stack is empty"
+            } else {
+return this.stack[this. size() - 1]
+            }
+        }
+
+        isEmpty(){
+            return this. size() === 0
+        }
+
+        size(){
+            return this.stack.length
+        }
+    }
+
+    let stack = new Stack
+
+    stack.push(899)
+    stack.push(89)
+    stack.push(89)
+
+
+    stack.pop()
+    console.log(stack.peek())
+</script>
