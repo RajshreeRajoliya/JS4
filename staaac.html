@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+// function isBalanced(str){
+// let stack = []
+// for(let i =0 ; i < str.length ; i++){
+//     let char = str[i]
+//     if(char === "(" || char === "{" || char === "["){
+// stack.push(char)
+//     } else {
+//         if(str.length === 0){
+//             return false
+//         }
+//         const top = stack.pop()
+//         if(
+//             (char === ")" && top != "(") ||
+//             (char === "}" && top != "{") ||
+//             (char === "]" && top != "[") 
+//         ){
+// return false
+//         }
+//     }
+// }
+// return stack.length === 0
+// }
+
+//     let expression = "{[()]}"
+// console.log(isBalanced(expression))
+
+
+// function reverseFun(str){
+// let rev = ""
+// let stack = []
+// for(let i = 0 ; i < str.length ; i++){
+//     stack.push(str[i])
+// }
+
+// for(let i = 0 ; i < str.length ; i++){
+//     rev += stack.pop()
+// }
+// }
+
+// let str = "HELLO WORLD"
+// reverseFun(str)
+
+
+
+function isBalanced(str){
+
+    let stack = []
+    
+    for(let i = 0 ; i < str.length ; i++){
+let char = str[i]
+
+if(char === "{" || char === "(" || char === "["){
+    stack.push(char)
+} else {
+    if(str.length === 0){
+        return false
+    }
+
+    const top = stack.pop()
+
+    if(
+        (char === ")" && top !== "(")||
+        (char === "}" && top !== "{")||
+        (char === "]" && top !== "[")
+    ){
+        return false
+    }
+}
+    }
+return stack.length === 0
+
+}
+
+let exp = "{[({]})]}"
+console.log(isBalanced(exp))
+</script>
