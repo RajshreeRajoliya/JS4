@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="" alt="" id="pic">
+</body>
+</html>
+
+<script>
+
+
+fetch('https://dog.ceo/api/breeds/image/random')
+.then(function(res){
+    return res.json()
+})
+.then(function(json){
+    console.log(json)
+    display(json)
+})
+
+
+function display(json){
+    let image = document.createElement("img")
+    image.setAttribute("src", json.message)
+    document.getElementById("pic").src = json.message; // Set the src attribute of the "pic" element directly
+}
+</script>

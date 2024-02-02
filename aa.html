@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="main"></div>
+</body>
+</html>
+
+<script>
+  async  function fetchingData(){
+try{
+    let res = await fetch('https://www.themealdb.com/api/json/v1/1/categories.php')
+let data = await res.json()
+console.log(data)
+displayData(data)
+} catch(Error){
+    console.log(Error)
+}
+    }
+    fetchingData()
+
+  function  displayData(data){
+data.categories.map((el)=>{
+    let div = document.createElement('div')
+
+    let image = document.createElement('img')
+    image.setAttribute("src",el.strCategoryThumb)
+
+    let title = document.createElement('h1')
+    title.innerHTML = el.strCategory
+
+    let des = document.createElement('div')
+    des.innerHTML = el.strCategoryDescription
+
+    div.append(image , title , des)
+    document.getElementById("main").append(div)
+})
+    }
+</script>
